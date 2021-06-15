@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <title>Odnawialne źródła energii</title>
+    <meta name="description" content="Strona informacyjna o odnawialnych źródłach energii!">
+    <meta name="keywords" content="OŹE, odnawialne źródła energii">
+    <meta name="author" content="Tomasz Borowski">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200;1,300&family=Roboto+Mono:ital,wght@1,200&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1 class="naglowek"> Sposoby na uzyskanie energii ze źródeł odnawialnych </h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html" class="nav-element">Strona główna</a></li>
+                <li><a href="kalkulator.html" class="nav-element">Kalkulator zużycia kWh</a></li>
+                <li id="knowledge" class="expandable">
+                    <div class="nav-element">
+                        <p>Wiedza</p>
+                        <div class="expandable-element">
+                            <ul>
+                                <li><a href="Rekuperacja.html">Rekuperacja</a></li>
+                                <li><a href="Fotowoltaika.html">Fotowoltaika</a></li>
+                                <li><a href="Kolektor_słoneczny.html">Kolektor słoneczny</a></li>
+                                <li><a href="Biogazowanie.html">Biogazowanie</a></li>
+                                <li><a href="Pompy_ciepła.html">Pompy ciepła - energia z wnętrza Ziemi</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li id="more-links" class="expandable">
+                    <div class="nav-element">
+                        <p>Linki zewnętrzne</p>
+                        <div class="expandable-element">
+                            <ul>
+                                <li><a target="_blank"
+                                        href="https://pl.wikipedia.org/wiki/Odnawialne_%C5%BAr%C3%B3d%C5%82a_energii">Definicja</a>
+                                </li>
+                                <li><a target="_blank"
+                                        href="https://www.cire.pl/pokaz-pdf-%252Fpliki%252F2%252F2017%252Fbielas_bledzinska_paska_oze_w_polsce.pdf">Perspektywy
+                                        rozwoju branży</a></li>
+                                <li><a target="_blank"
+                                        href="https://www.gramwzielone.pl/energia-sloneczna/21908/10-czy-30-lat-jaka-jest-rzeczywista-stopa-zwrotu-mikroinstalacji">Szacunkowy
+                                        czas zwrotu inwestycji w fotowoltaikę</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-fluid">
+            <div class="row col-4 calc">
+                <h5>Podaj wysokość miesięcznego rachunku za prąd</h5>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-light bg-dark" id="basic-addon1">PLN</span>
+                    </div>
+                    <input type="number" class="form-control text-light bg-dark" id="calc"
+                        placeholder="kwota miesięcznie" aria-label="Username" aria-describedby="basic-addon1"
+                        onchange="calcBil(this.value)">
+                    <div class="input-group-append text-light bg-dark">
+                        <span class="input-group-text text-light bg-dark" id="basic-addon2">miesięcznie</span>
+                    </div>
+                </div>
+            </div>
+            <div class="jumbotron col-6 text-light bg-dark calc" id="calc-result">
+                <h3 class="my-2">Zużycie energii</h3>
+                <p class="lead">Analiza opracowana na bazie obliczeń z uwzględnieniem ceny 0,72 PLN/kWh</p>
+                <hr class="my-4">
+                <p id="result-m"></p>
+                <hr>
+                <p id="result-y"></p>
+            </div>
+        </div>
+			<div style="text-align:center";>
+			<button>Poczytaj więcej o kosztach związanych z energią</button>
+			</div>
+        <div id="page1" class="mt-5">
+            <h5 class="row justify-content-center">Kalkulator algebraiczny</h5>
+            <div class="row justify-content-center">
+                <div id="calculator" class="col-6">
+                    <form name="form1">
+                        Kalkulator:<br>
+                        <input type="number" class="form-control mb-2 text-light bg-dark" name="a1" max=6>
+                        <input type="button" class="btn btn-light btn-outline-dark" value="+" onclick="addition()">
+                        <input type="button" class="btn btn-light btn-outline-dark" value="-" onclick="subtraction()">
+                        <input type="button" class="btn btn-light btn-outline-dark" value="*"
+                            onclick="multiplication()">
+                        <input type="button" class="btn btn-light btn-outline-dark" value="/" onclick="division()">
+                        <input type="button" class="btn btn-light btn-outline-dark" value="!" onclick="factorial()">
+                        <input type="button" class="btn btn-light btn-outline-dark" value="&#8730" onclick="square()">
+                        <input type="button" class="btn btn-light btn-outline-dark" value="x&#178" onclick="power()">
+                        <input type="number" class="form-control mt-2 text-light bg-dark" name="b1" size=6>
+                        <hr>
+                        Wynik:
+                        <br />
+                        <input type="number" class="form-control text-light bg-dark" name="c1" size=10 readonly><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="script.js"></script>
+
+</html>
